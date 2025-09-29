@@ -4,7 +4,7 @@ Base class for PDE solvers using finite difference methods.
 
 from abc import ABC, abstractmethod
 import numpy as np
-from typing import Callable
+from typing import Callable, Tuple
 
 
 class PDESolverBase(ABC):
