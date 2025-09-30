@@ -61,7 +61,10 @@ for N_t in N_t_values:
         results['Explicit FD']['stable'].append(is_stable)
         results['Explicit FD']['alpha_max'].append(alpha_max)
         results['Explicit FD']['prices'].append(price)
-        print(f"  Explicit:  α_max={alpha_max:.4f}, Stable={is_stable}, Price=${price:.4f if not np.isnan(price) else 'NaN'}")
+        if not np.isnan(price):
+            print(f"  Explicit:  α_max={alpha_max:.4f}, Stable={is_stable}, Price=${price:.4f}")
+        else:
+            print(f"  Explicit:  α_max={alpha_max:.4f}, Stable={is_stable}, Price=$NaN")
     except Exception as e:
         results['Explicit FD']['stable'].append(False)
         results['Explicit FD']['alpha_max'].append(np.nan)

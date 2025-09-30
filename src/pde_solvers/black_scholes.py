@@ -326,7 +326,7 @@ class BlackScholesPDE:
         """
         theta = np.zeros(self.N_t + 1)
 
-        # Backward difference
-        theta[1:] = -(self.V[S_idx, 1:] - self.V[S_idx, :-1]) / self.dt
+        # Backward difference (negative because option value decreases with time)
+        theta[1:] = (self.V[S_idx, 1:] - self.V[S_idx, :-1]) / self.dt
 
         return theta
