@@ -8,7 +8,7 @@
 
 > **Real-Time Risk Management System**: Ultra-fast option pricing using Machine Learning surrogate models trained on PDE solvers — achieving **100-1000x speedup** with <1% error for trading desk applications.
 
-> **🎯 NEW**: [Interactive Web Dashboard](#-interactive-dashboard) - Try it live: [Deploy your own](DEPLOYMENT.md) or run locally in seconds!
+> **🎯 NEW**: [Interactive Web Dashboard](#-interactive-dashboard) - **[Try it live!](https://pde-option-pricing-01.streamlit.app/)** | [Deploy your own](DEPLOYMENT.md) | Run locally in seconds!
 
 ---
 
@@ -128,6 +128,12 @@ This will:
 
 ## 🌐 Interactive Dashboard
 
+### 🚀 Live Demo
+
+**Try the app now:** [https://pde-option-pricing-01.streamlit.app/](https://pde-option-pricing-01.streamlit.app/)
+
+No installation required - explore option pricing directly in your browser!
+
 ### Overview
 
 The Streamlit dashboard provides a professional web interface for exploring option pricing in real-time with interactive charts and analysis tools.
@@ -167,13 +173,16 @@ The Streamlit dashboard provides a professional web interface for exploring opti
 
 ### Deployment Options
 
-**Free Deployment (Recommended):**
+**Live Deployment:**
+- **Production URL:** [https://pde-option-pricing-01.streamlit.app/](https://pde-option-pricing-01.streamlit.app/)
+- **Platform:** Streamlit Community Cloud (FREE)
+- **Status:** ✅ Live and accessible worldwide
+
+**Deploy Your Own:**
 ```bash
 # Push to GitHub, then deploy on Streamlit Cloud
 # See DEPLOYMENT.md for step-by-step guide
 ```
-
-Your app will be live at: `https://your-app-name.streamlit.app/`
 
 **Other Options:**
 - Heroku ($0-7/month)
