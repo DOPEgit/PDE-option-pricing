@@ -166,3 +166,4 @@ The test suite validates:
 2. **Theta test failures**: Check that theta calculation doesn't have negative sign
 3. **Memory issues with large grids**: Use `use_sparse=True` for implicit methods
 4. **Stability failures**: Increase N_t or switch to implicit/CN method
+- when commiting and pushing always make a series of maximum commits. First think it throught. If you cannot amke maximimum commits then dont if it exceeds more commits feel free. First gather the commits that you need to do and then commit all the commits seperately in one go if you are able to do so
