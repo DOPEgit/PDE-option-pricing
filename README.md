@@ -392,11 +392,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
 **Sakeeb Rahman**
 - GitHub: [@Sakeeb91](https://github.com/Sakeeb91)
 - Email: rahman.sakeeb@gmail.com
+
+**Collaborating Author**
+- GitHub: [@mohin-io](https://github.com/mohin-io)
 
 ---
 
