@@ -3,9 +3,12 @@
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 > **Real-Time Risk Management System**: Ultra-fast option pricing using Machine Learning surrogate models trained on PDE solvers — achieving **100-1000x speedup** with <1% error for trading desk applications.
+
+> **🎯 NEW**: [Interactive Web Dashboard](#-interactive-dashboard) - Try it live: [Deploy your own](DEPLOYMENT.md) or run locally in seconds!
 
 ---
 
@@ -59,8 +62,11 @@ Trading desks need to:
 - ✅ **Feature engineering** — moneyness, volatility-time, etc.
 
 ### 📈 Visualization & Analysis
-- ✅ **3D surface plots** for option values
+- ✅ **Interactive web dashboard** with Streamlit
+- ✅ **3D surface plots** for option values (interactive with Plotly)
 - ✅ **Greeks visualization** (Delta, Gamma, Theta surfaces)
+- ✅ **Real-time market data** integration (Yahoo Finance)
+- ✅ **Portfolio risk analysis** with P&L scenarios
 - ✅ **Convergence analysis** with log-log plots
 - ✅ **Method comparisons** with error metrics
 - ✅ **ML vs PDE comprehensive comparison** dashboard
@@ -83,7 +89,26 @@ pip install -r requirements.txt
 pip install -e .
 ```
 
-### Run Demo
+### 🎨 Interactive Dashboard (Recommended!)
+
+Launch the web dashboard for interactive exploration:
+
+```bash
+streamlit run option_pricing_app.py
+```
+
+Then open your browser to `http://localhost:8501`
+
+**Features:**
+- 📊 Real-time option pricing with PDE and ML models
+- 📈 Interactive 3D Greeks visualizations
+- 📉 Live market data from Yahoo Finance
+- 💼 Portfolio risk analysis and P&L scenarios
+- 🤖 ML vs PDE performance benchmarks
+
+See [APP_GUIDE.md](APP_GUIDE.md) for detailed usage instructions.
+
+### 📊 Command-Line Demo
 
 ```bash
 # Run complete demonstration
@@ -98,6 +123,65 @@ This will:
 5. ✅ Generate all visualizations in `plots/` directory
 
 **Expected runtime:** ~10-15 minutes (generates all plots and trained models)
+
+---
+
+## 🌐 Interactive Dashboard
+
+### Overview
+
+The Streamlit dashboard provides a professional web interface for exploring option pricing in real-time with interactive charts and analysis tools.
+
+### 5 Key Tabs
+
+#### 1️⃣ **Real-Time Pricing**
+- Price European calls and puts instantly
+- Compare PDE solvers (Explicit, Implicit, Crank-Nicolson)
+- ML model predictions with 1000x speedup
+- Interactive price sensitivity charts
+- Live Greeks calculation
+
+#### 2️⃣ **Interactive Greeks**
+- 3D surface plots for Delta, Gamma, Theta
+- Adjustable parameter ranges
+- Heatmap visualizations
+- Rotate, zoom, and explore
+
+#### 3️⃣ **Historical Analysis**
+- Fetch live market data (Yahoo Finance)
+- Calculate historical volatility
+- Rolling volatility charts
+- Returns distribution analysis
+
+#### 4️⃣ **Portfolio Risk**
+- Build multi-position portfolios
+- Aggregate Greeks calculation
+- P&L scenario analysis
+- Risk metrics dashboard
+
+#### 5️⃣ **Model Performance**
+- Compare 100+ test cases
+- PDE vs ML accuracy metrics
+- Speed benchmarks
+- Error distributions
+
+### Deployment Options
+
+**Free Deployment (Recommended):**
+```bash
+# Push to GitHub, then deploy on Streamlit Cloud
+# See DEPLOYMENT.md for step-by-step guide
+```
+
+Your app will be live at: `https://your-app-name.streamlit.app/`
+
+**Other Options:**
+- Heroku ($0-7/month)
+- Hugging Face Spaces (Free)
+- Railway ($5/month)
+- AWS/GCP/Azure (Variable)
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
 
 ---
 
@@ -209,9 +293,13 @@ Average of explicit and implicit schemes (θ = 0.5)
 ```
 PDE-option-pricing/
 ├── README.md                          # You are here!
+├── option_pricing_app.py              # 🆕 Interactive Streamlit dashboard
 ├── main_demo.py                       # Main demonstration script
 ├── requirements.txt                   # Python dependencies
 ├── setup.py                          # Package setup
+│
+├── .streamlit/                       # 🆕 Streamlit configuration
+│   └── config.toml                   # Dashboard settings
 │
 ├── src/                              # Source code
 │   ├── pde_solvers/                  # PDE implementations
@@ -228,6 +316,16 @@ PDE-option-pricing/
 │   ├── ml_models/                    # Machine learning
 │   │   ├── data_generator.py        # Training data generator
 │   │   └── surrogate_models.py      # ML surrogate models
+│   │
+│   ├── market_data/                  # 🆕 Real-time data fetching
+│   │   ├── yahoo_fetcher.py         # Yahoo Finance integration
+│   │   ├── fred_fetcher.py          # FRED economic data
+│   │   ├── volatility_calc.py       # Volatility calculations
+│   │   └── live_pricer.py           # Live option pricing
+│   │
+│   ├── app/                          # 🆕 Dashboard utilities
+│   │   ├── app_utils.py             # Helper functions
+│   │   └── chart_builders.py        # Plotly chart components
 │   │
 │   └── visualization/                # Plotting utilities
 │       ├── surface_plots.py         # 3D surfaces & Greeks
@@ -249,6 +347,8 @@ PDE-option-pricing/
 │   ├── X_train.csv                  # Features
 │   ├── y_train.csv                  # Targets (price & Greeks)
 │   └── models/                      # Saved ML models
+│       ├── xgboost/                 # XGBoost models
+│       └── random_forest/           # Random Forest models
 │
 ├── tests/                           # Unit tests
 │   ├── test_solvers.py
@@ -256,6 +356,8 @@ PDE-option-pricing/
 │   └── test_ml_models.py
 │
 └── docs/                            # Documentation
+    ├── APP_GUIDE.md                 # 🆕 Dashboard user guide
+    ├── DEPLOYMENT.md                # 🆕 Deployment instructions
     ├── PROJECT_PLAN.md              # Detailed project plan
     ├── METHODOLOGY.md               # Mathematical background
     └── RESULTS.md                   # Detailed results & analysis
@@ -264,6 +366,28 @@ PDE-option-pricing/
 ---
 
 ## 💻 Usage Examples
+
+### Example 0: Interactive Dashboard (Easiest!)
+
+```bash
+# Launch the web dashboard
+streamlit run option_pricing_app.py
+```
+
+Then in your browser:
+1. Adjust parameters in the sidebar (S₀, K, T, r, σ)
+2. Switch between tabs to explore different features
+3. Click "Generate Surface" for 3D Greeks visualizations
+4. Enable "Use Live Data" to fetch real market data
+5. Build portfolios and analyze risk scenarios
+
+**No coding required!** Perfect for:
+- Quick option pricing
+- Educational demonstrations
+- Presenting to stakeholders
+- Exploring parameter sensitivities
+
+---
 
 ### Example 1: Price a European Call Option
 
@@ -358,11 +482,13 @@ This project demonstrates:
 
 1. ✅ **Advanced Mathematical Modeling** — Deep understanding of PDEs and numerical methods
 2. ✅ **Machine Learning Engineering** — Building production-ready ML pipelines
-3. ✅ **Financial Domain Knowledge** — Options pricing, Greeks, risk management
-4. ✅ **Software Engineering Best Practices** — Clean code, testing, documentation
-5. ✅ **Performance Optimization** — Achieving 100-1500x speedup
-6. ✅ **Data Visualization** — Publication-quality plots and analysis
-7. ✅ **End-to-End ML Pipeline** — Data generation → training → validation → deployment
+3. ✅ **Full-Stack Development** — Interactive web applications with Streamlit
+4. ✅ **Financial Domain Knowledge** — Options pricing, Greeks, risk management
+5. ✅ **Software Engineering Best Practices** — Clean code, testing, documentation
+6. ✅ **Performance Optimization** — Achieving 100-1500x speedup
+7. ✅ **Data Visualization** — Interactive dashboards and publication-quality plots
+8. ✅ **End-to-End ML Pipeline** — Data generation → training → validation → deployment
+9. ✅ **Cloud Deployment** — Production-ready deployment on multiple platforms
 
 ### Real-World Applications
 
