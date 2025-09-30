@@ -1,0 +1,25 @@
+# Real-time market data and trading requirements
+# Install with: pip install -r requirements_realtime.txt
+
+# Market Data APIs
+yfinance>=0.2.28       # Yahoo Finance data
+alpha-vantage>=2.3.1   # Alpha Vantage API
+fredapi>=0.5.1         # Federal Reserve Economic Data
+
+# Web APIs
+requests>=2.31.0       # HTTP requests
+websocket-client>=1.6.1  # WebSocket connections
+aiohttp>=3.8.5         # Async HTTP
+
+# Visualization
+plotly>=5.17.0         # Interactive plots
+dash>=2.14.0           # Web dashboards
+streamlit>=1.28.0      # Quick web apps
+
+# Additional ML/Stats
+arch>=6.2.0            # GARCH models
+statsmodels>=0.14.0    # Statistical models
+
+# Data handling
+pytz>=2023.3           # Timezone handling
+holidays>=0.35         # Market holidays
